@@ -1,10 +1,12 @@
-package vip.daur.calc2;
+package vip.daur.calc2.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import vip.daur.calc2.R;
+
+public class CalculatorActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
