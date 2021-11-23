@@ -3,7 +3,6 @@ package vip.daur.calc2.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Path;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -95,15 +94,15 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
     private void createDigitClickListener() {
         HashMap<Integer, Integer> digits = new HashMap<>();
         digits.put(R.id.key_0, 0);
-        digits.put(R.id.key_1, 0);
-        digits.put(R.id.key_2, 0);
-        digits.put(R.id.key_3, 0);
-        digits.put(R.id.key_4, 0);
-        digits.put(R.id.key_5, 0);
-        digits.put(R.id.key_6, 0);
-        digits.put(R.id.key_7, 0);
-        digits.put(R.id.key_8, 0);
-        digits.put(R.id.key_9, 0);
+        digits.put(R.id.key_1, 1);
+        digits.put(R.id.key_2, 2);
+        digits.put(R.id.key_3, 3);
+        digits.put(R.id.key_4, 4);
+        digits.put(R.id.key_5, 5);
+        digits.put(R.id.key_6, 6);
+        digits.put(R.id.key_7, 7);
+        digits.put(R.id.key_8, 8);
+        digits.put(R.id.key_9, 9);
 
         View.OnClickListener digitClickListener = new View.OnClickListener() {
             @Override
