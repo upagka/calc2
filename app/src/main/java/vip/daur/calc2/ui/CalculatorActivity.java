@@ -1,6 +1,7 @@
 package vip.daur.calc2.ui;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -17,16 +18,27 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
 
     private TextView txtResult;
     private CalculatorPresenter presenter;
+    private State currentState = new State(0);
+
+    private static final String ARG_STATE = "ARG_STATE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
 
-
-
-        presenter = new CalculatorPresenter(this, new CalculatorImpl());
         txtResult = findViewById(R.id.result);
+
+
+        if (savedInstanceState == null) {
+            presenter = new CalculatorPresenter(this, new CalculatorImpl());
+        } else {
+            currentState = savedInstanceState.getParcelable(ARG_STATE);
+            presenter = new CalculatorPresenter(this, new CalculatorImpl(), currentState);
+        }
+
+
+
 
         createDigitClickListener();
         createDotClickListener();
@@ -128,5 +140,11 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
     @Override
     public void showResult(String value) {
         txtResult.setText(value);
+    }
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        currentState = CalculatorPresenter.getState();
+        outState.putParcelable(ARG_STATE, currentState);
     }
 }

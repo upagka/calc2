@@ -7,20 +7,31 @@ import vip.daur.calc2.domain.Calculator;
 import vip.daur.calc2.domain.Operation;
 
 public class CalculatorPresenter {
-    private CalculatorView view;
+    private static CalculatorView view;
     private Calculator calculator;
 
-    private boolean afterEquals = false;
+    private static boolean afterEquals = false;
     private final int MAX_LENGTH = 20;
-    private Double argOne = 0.0;
-    private Double argTwo = null;
-    private String inputNumber = "0";
-    private Operation previousOperation = null;
+    private static Double argOne = 0.0;
+    private static Double argTwo = null;
+    private static String inputNumber = "0";
+    private static String currentNumber = "0";
+    private static Operation previousOperation = null;
 
 
     public CalculatorPresenter(CalculatorView view, Calculator calculator) {
         this.view = view;
         this.calculator = calculator;
+    }
+    public CalculatorPresenter(CalculatorView view, Calculator calculator, State state) {
+        this.view = view;
+        this.calculator = calculator;
+        argOne = state.getArgOne();
+        inputNumber = state.getInputNumber();
+        previousOperation = state.getPreviousOperation();
+        afterEquals = state.afterEquals;
+        currentNumber = state.getCurrentNumber();
+        view.showResult(currentNumber);
     }
 
     public void onDotPressed() {
@@ -52,7 +63,8 @@ public class CalculatorPresenter {
         } else if (inputNumber != "0") {
             argTwo = Double.parseDouble(inputNumber);
             double result = calculator.performOperation(argOne, argTwo, previousOperation);
-            view.showResult(Double.toString(result));
+            currentNumber = Double.toString(result);
+            view.showResult(currentNumber);
             argOne = result;
         }
         inputNumber = "0";
@@ -86,4 +98,15 @@ public class CalculatorPresenter {
             }
         }
     }
+
+    public static State getState() {
+        State currentState = new State(0);
+        currentState.setArgOne(argOne);
+        currentState.setAfterEquals(afterEquals);
+        currentState.setInputNumber(inputNumber);
+        currentState.setPreviousOperation(previousOperation);
+        currentState.setCurrentNumber(currentNumber);
+        return currentState;
+    }
+
 }

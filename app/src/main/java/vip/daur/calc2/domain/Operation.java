@@ -1,6 +1,8 @@
 package vip.daur.calc2.domain;
 
-public enum Operation {
+import java.io.Serializable;
+
+public enum Operation implements Serializable {
     SUM,
     SUB,
     MULTI,
