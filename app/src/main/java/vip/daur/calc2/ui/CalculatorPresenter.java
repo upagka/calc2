@@ -10,10 +10,12 @@ public class CalculatorPresenter {
     private CalculatorView view;
     private Calculator calculator;
 
+    private boolean afterEquals = false;
+    private final int MAX_LENGTH = 20;
     private Double argOne = 0.0;
     private Double argTwo = null;
+    private String inputNumber = "0";
     private Operation previousOperation = null;
-    private int shift = 0;
 
 
     public CalculatorPresenter(CalculatorView view, Calculator calculator) {
@@ -22,50 +24,66 @@ public class CalculatorPresenter {
     }
 
     public void onDotPressed() {
-        if (shift == 0){
-            shift = 1;
+        afterEquals = false;
+        if (inputNumber.indexOf('.') == -1) {
+            inputNumber += ".";
+            view.showResult(inputNumber);
         }
     }
 
-    public void onDigitPressed(int digit) {
-        if (previousOperation != null) {
-            argTwo = addDigit(argTwo, digit);
-            view.showResult(String.valueOf(argTwo));
-        } else {
-            argOne = addDigit(argOne, digit);
-            view.showResult(String.valueOf(argOne));
+    public void onDigitPressed(String digit) {
+        afterEquals = false;
+        if (inputNumber.length() <= MAX_LENGTH) {
+            if (inputNumber != "0") {
+                inputNumber += digit;
+            } else {
+                inputNumber = digit;
+            }
+            view.showResult(inputNumber);
         }
     }
-
-    private double addDigit(Double arg, int digit) {
-        double newArg;
-        if (shift == 0) {
-            newArg = arg * 10 + digit;
-        } else {
-            newArg = arg + digit / (pow(10, shift));
-            shift++;
-        }
-        return newArg;
-    }
-
 
     public void onOperandPressed(Operation operation) {
-        if (argTwo != null) {
+        if (argTwo == null) {
+            if (afterEquals == false) {
+                argOne = Double.parseDouble(inputNumber);
+            }
+            argTwo = 0.0;
+        } else if (inputNumber != "0") {
+            argTwo = Double.parseDouble(inputNumber);
             double result = calculator.performOperation(argOne, argTwo, previousOperation);
-            view.showResult(String.valueOf(result));
+            view.showResult(Double.toString(result));
             argOne = result;
         }
-        shift = 0;
-        argTwo = 0.0;
+        inputNumber = "0";
         previousOperation = operation;
     }
 
     public void onClearPressed() {
+        afterEquals = false;
+        argTwo = null;
+        previousOperation = null;
+        inputNumber = "0";
+        view.showResult(inputNumber);
     }
 
     public void onEqualsPressed() {
+        onOperandPressed(Operation.SUM);
+        argTwo = null;
+        previousOperation = null;
+        afterEquals = true;
     }
 
     public void onBackspacePressed() {
+        afterEquals = false;
+        if (inputNumber != "0") {
+            if (inputNumber.length() > 1) {
+                inputNumber = inputNumber.substring(0, inputNumber.length() - 1);
+                view.showResult(inputNumber);
+            } else {
+                inputNumber = "0";
+                view.showResult(inputNumber);
+            }
+        }
     }
 }

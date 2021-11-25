@@ -23,6 +23,8 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
 
+
+
         presenter = new CalculatorPresenter(this, new CalculatorImpl());
         txtResult = findViewById(R.id.result);
 
@@ -92,17 +94,17 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
     }
 
     private void createDigitClickListener() {
-        HashMap<Integer, Integer> digits = new HashMap<>();
-        digits.put(R.id.key_0, 0);
-        digits.put(R.id.key_1, 1);
-        digits.put(R.id.key_2, 2);
-        digits.put(R.id.key_3, 3);
-        digits.put(R.id.key_4, 4);
-        digits.put(R.id.key_5, 5);
-        digits.put(R.id.key_6, 6);
-        digits.put(R.id.key_7, 7);
-        digits.put(R.id.key_8, 8);
-        digits.put(R.id.key_9, 9);
+        HashMap<Integer, String> digits = new HashMap<>();
+        digits.put(R.id.key_0, "0");
+        digits.put(R.id.key_1, "1");
+        digits.put(R.id.key_2, "2");
+        digits.put(R.id.key_3, "3");
+        digits.put(R.id.key_4, "4");
+        digits.put(R.id.key_5, "5");
+        digits.put(R.id.key_6, "6");
+        digits.put(R.id.key_7, "7");
+        digits.put(R.id.key_8, "8");
+        digits.put(R.id.key_9, "9");
 
         View.OnClickListener digitClickListener = new View.OnClickListener() {
             @Override
@@ -126,6 +128,5 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
     @Override
     public void showResult(String value) {
         txtResult.setText(value);
-
     }
 }
