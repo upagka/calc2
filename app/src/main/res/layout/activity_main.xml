@@ -1,18 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".ui.CalculatorActivity"
+    android:background="@drawable/pink_background">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical|end"
+        android:paddingEnd="8dp"
+        android:text="@string/result"
+        android:textSize="50sp"
+        tools:ignore="RtlSymmetry" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:columnCount="4">
+
+        <Button
+            style="@style/all_buttons"
+            android:layout_columnSpan="2"
+            android:text="@string/key_clear" />
+
+        <Button
+            style="@style/all_buttons"
+            android:layout_columnSpan="2"
+            android:text="@string/key_backspace" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:layout_column="0"
+            android:text="@string/key_7" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:text="@string/key_8" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:text="@string/key_9" />
+
+        <Button
+            style="@style/operation_buttons"
+            android:text="@string/key_div" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:text="@string/key_4" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:text="@string/key_5" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:text="@string/key_6" />
+
+        <Button
+            style="@style/operation_buttons"
+            android:text="@string/key_multi" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:text="@string/key_1" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:text="@string/key_2" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:text="@string/key_3" />
+
+        <Button
+            style="@style/operation_buttons"
+            android:text="@string/key_minus" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:layout_columnSpan="2"
+            android:text="@string/key_0" />
+
+        <Button
+            style="@style/digit_buttons"
+            android:text="@string/key_dot" />
+
+        <Button
+            style="@style/operation_buttons"
+            android:layout_rowSpan="2"
+            android:text="@string/key_plus" />
+
+        <Button
+            style="@style/all_buttons"
+            android:layout_columnSpan="3"
+            android:text="@string/key_equals" />
+    </GridLayout>
+</LinearLayout>
