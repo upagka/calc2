@@ -4,8 +4,10 @@ package vip.daur.calc2.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -39,7 +41,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
 
 
 
-
+        createSelectThemeClickListener();
         createDigitClickListener();
         createDotClickListener();
         createOperandClickListener();
@@ -76,6 +78,15 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         });
     }
 
+    private void createSelectThemeClickListener() {
+        findViewById(R.id.key_select_theme).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectTheme();
+            }
+        });
+    }
+
     private void createDotClickListener() {
         findViewById(R.id.key_dot).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +94,11 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
                 presenter.onDotPressed();
             }
         });
+    }
+
+    public void selectTheme() {
+        Intent intent = new Intent(this, SelectThemeActivity.class);
+        startActivity(intent);
     }
 
     private void createOperandClickListener() {

@@ -10,7 +10,7 @@ public class CalculatorPresenter {
     private static CalculatorView view;
     private Calculator calculator;
 
-    private static boolean afterEquals = false;
+    private static int afterEquals = 0;
     private final int MAX_LENGTH = 20;
     private static Double argOne = 0.0;
     private static Double argTwo = null;
@@ -35,7 +35,7 @@ public class CalculatorPresenter {
     }
 
     public void onDotPressed() {
-        afterEquals = false;
+        afterEquals = 0;
         if (inputNumber.indexOf('.') == -1) {
             inputNumber += ".";
             view.showResult(inputNumber);
@@ -43,7 +43,7 @@ public class CalculatorPresenter {
     }
 
     public void onDigitPressed(String digit) {
-        afterEquals = false;
+        afterEquals = 0;
         if (inputNumber.length() <= MAX_LENGTH) {
             if (inputNumber != "0") {
                 inputNumber += digit;
@@ -56,7 +56,7 @@ public class CalculatorPresenter {
 
     public void onOperandPressed(Operation operation) {
         if (argTwo == null) {
-            if (afterEquals == false) {
+            if (afterEquals == 0) {
                 argOne = Double.parseDouble(inputNumber);
             }
             argTwo = 0.0;
@@ -72,7 +72,7 @@ public class CalculatorPresenter {
     }
 
     public void onClearPressed() {
-        afterEquals = false;
+        afterEquals = 0;
         argTwo = null;
         previousOperation = null;
         inputNumber = "0";
@@ -83,11 +83,11 @@ public class CalculatorPresenter {
         onOperandPressed(Operation.SUM);
         argTwo = null;
         previousOperation = null;
-        afterEquals = true;
+        afterEquals = 1;
     }
 
     public void onBackspacePressed() {
-        afterEquals = false;
+        afterEquals = 0;
         if (inputNumber != "0") {
             if (inputNumber.length() > 1) {
                 inputNumber = inputNumber.substring(0, inputNumber.length() - 1);

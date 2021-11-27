@@ -13,7 +13,7 @@ public class State implements Parcelable {
 
     private double argOne;
     private String inputNumber;
-    public boolean afterEquals;
+    public int afterEquals;
     private Operation previousOperation;
 
     public String getCurrentNumber() {
@@ -35,10 +35,6 @@ public class State implements Parcelable {
         return inputNumber;
     }
 
-    public boolean isAfterEquals() {
-        return afterEquals;
-    }
-
     public Operation getPreviousOperation() {
         return previousOperation;
     }
@@ -51,7 +47,7 @@ public class State implements Parcelable {
         this.inputNumber = inputNumber;
     }
 
-    public void setAfterEquals(boolean afterEquals) {
+    public void setAfterEquals(int afterEquals) {
         this.afterEquals = afterEquals;
     }
 
@@ -71,7 +67,7 @@ public class State implements Parcelable {
     protected State(Parcel in) {
         argOne = in.readDouble();
         inputNumber = in.readString();
-        afterEquals = in.readBoolean();
+        afterEquals = in.readInt();
         previousOperation = (Operation) in.readSerializable();
         currentNumber = in.readString();
     }
@@ -99,7 +95,7 @@ public class State implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeDouble(argOne);
         dest.writeString(inputNumber);
-        dest.writeBoolean(afterEquals);
+        dest.writeInt(afterEquals);
         dest.writeSerializable(previousOperation);
         dest.writeSerializable(currentNumber);
     }
