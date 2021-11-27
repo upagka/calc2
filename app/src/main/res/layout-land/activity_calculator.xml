@@ -13,19 +13,20 @@
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/layout_height"
         android:layout_weight="1"
         android:gravity="center_vertical|end"
-        android:paddingEnd="8dp"
+        android:paddingEnd="@dimen/inputFieldPaddingEnd"
         android:text="@string/result"
-        android:textSize="30sp"
+        android:textSize="@dimen/inputFieldTextSize"
         tools:ignore="RtlSymmetry" />
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/layout_height"
         android:layout_weight="5"
-        android:columnCount="7">
+        android:columnCount="7"
+        android:theme="@style/Theme.Calc2.MyTheme">
 
 
 
@@ -130,6 +131,6 @@
             android:id="@+id/key_equals"
             style="@style/all_buttons"
             android:layout_columnSpan="4"
-            android:text="@string/key_equals" />
+            android:text="@string/key_equals"/>
     </GridLayout>
 </LinearLayout>
