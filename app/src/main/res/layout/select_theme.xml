@@ -3,64 +3,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_theme_light"
-        style="@style/SelectThemeItem"
-    />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_theme_dark"
-        style="@style/SelectThemeItem"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_theme_green"
-        style="@style/SelectThemeItem"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_theme_emo"
-        style="@style/SelectThemeItem" />
 
     <TextView
+        style="@style/SelectThemeItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/result"
+        android:text="@string/select_theme_light" />
+
+    <TextView
+        style="@style/SelectThemeItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_theme_dark" />
+
+    <TextView
+        style="@style/SelectThemeItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_theme_green" />
+
+    <TextView
+        style="@style/SelectThemeItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_theme_emo" />
+
+    <TextView
         style="@style/InputField"
-        android:height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        />
+        android:height="60dp"
+        android:text="@string/result" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             style="@style/AllButtons"
-            android:text="@string/key_clear"
-            android:layout_weight="1"
-            />
-        <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/key_clear" />
+
+        <Button
             style="@style/OperationButtons"
-            android:text="@string/key_plus"
-            android:layout_weight="1"
-            />
-        <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/key_plus" />
+
+        <Button
             style="@style/DigitButtons"
-            android:text="@string/key_0"
-            />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/key_0" />
 
     </LinearLayout>
 
