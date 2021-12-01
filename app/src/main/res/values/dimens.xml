@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="inputFieldPaddingEnd">8dp</dimen>
+    <dimen name="inputFieldTextSize">30sp</dimen>
+    <dimen name="layout_height">0dp</dimen>
+    <dimen name="my_theme_text_size">32sp</dimen>
+</resources>

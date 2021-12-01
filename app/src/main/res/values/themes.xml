@@ -13,4 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.Calc2.MyTheme" parent="Theme.Calc2">
+        <item name="colorPrimary">@color/red</item>
+        <item name="android:textSize">@dimen/my_theme_text_size</item>
+        <item name="fontFamily">@font/planet</item>
+    </style>
+
 </resources>

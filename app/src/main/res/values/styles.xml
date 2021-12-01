@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="all_buttons">
+    <style name="AllButtons">
         <item name="android:layout_margin">4dp</item>
         <item name="android:layout_gravity">fill</item>
         <item name="android:layout_rowWeight">1</item>
@@ -9,11 +9,11 @@
         <item name="android:insetBottom">0dp</item>
     </style>
 
-    <style name="digit_buttons" parent="all_buttons">
+    <style name="DigitButtons" parent="AllButtons">
         <item name="android:backgroundTint">#7733dd</item>
     </style>
 
-    <style name="operation_buttons" parent="all_buttons">
+    <style name="OperationButtons" parent="AllButtons">
         <item name="backgroundTint">#3377dd</item>
     </style>
 </resources>
