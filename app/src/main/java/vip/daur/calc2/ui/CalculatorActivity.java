@@ -1,22 +1,46 @@
 package vip.daur.calc2.ui;
 
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultCaller;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.HashMap;
 
 import vip.daur.calc2.R;
+import vip.daur.calc2.Storage.ThemeStorage;
 import vip.daur.calc2.domain.*;
 
 
 public class CalculatorActivity extends AppCompatActivity implements CalculatorView {
+
+
+    private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == Activity.RESULT_OK) {
+                Theme theme = (Theme) result.getData().getSerializableExtra(SelectThemeActivity.EXTRA_THEME);
+                storage.saveTheme(theme);
+
+                recreate();
+            }
+        }
+    });
+
+    private ThemeStorage storage;
 
     private TextView txtResult;
     private CalculatorPresenter presenter;
@@ -24,10 +48,21 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
 
     private static final String ARG_STATE = "ARG_STATE";
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        storage = new ThemeStorage(this);
+
+
+
+        setTheme(storage.getSavedTheme().getTheme());
+
         setContentView(R.layout.activity_calculator);
+
+
 
         txtResult = findViewById(R.id.result);
 
@@ -98,7 +133,9 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
 
     public void selectTheme() {
         Intent intent = new Intent(this, SelectThemeActivity.class);
-        startActivity(intent);
+        intent.putExtra(SelectThemeActivity.EXTRA_THEME, storage.getSavedTheme());
+
+        launcher.launch(intent);
     }
 
     private void createOperandClickListener() {

@@ -18,5 +18,17 @@
         <item name="android:textSize">@dimen/my_theme_text_size</item>
         <item name="fontFamily">@font/planet</item>
     </style>
+    <style name="Theme.Calc2.Fun" parent="Theme.Calc2">
+        <item name="colorPrimary">@color/funny_yellow</item>
+    </style>
+
+    <style name="Theme.Calc2.Magic" parent="Theme.Calc2">
+        <item name="colorPrimary">@color/dark_purple</item>
+    </style>
+
+    <style name="Theme.Calc2.Metal" parent="Theme.Calc2">
+        <item name="colorPrimary">@color/steel</item>
+    </style>
+
 
 </resources>

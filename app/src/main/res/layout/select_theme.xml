@@ -2,67 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <TextView
-        style="@style/SelectThemeItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_theme_light" />
-
-    <TextView
-        style="@style/SelectThemeItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_theme_dark" />
-
-    <TextView
-        style="@style/SelectThemeItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_theme_green" />
-
-    <TextView
-        style="@style/SelectThemeItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_theme_emo" />
-
-    <TextView
-        style="@style/InputField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:height="60dp"
-        android:text="@string/result" />
-
     <LinearLayout
+        android:id="@+id/themes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            style="@style/AllButtons"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/key_clear" />
-
-        <Button
-            style="@style/OperationButtons"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/key_plus" />
-
-        <Button
-            style="@style/DigitButtons"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/key_0" />
-
-    </LinearLayout>
+        android:orientation="vertical"
+        tools:context=".ui.theme.SelectThemeActivity" />
 
 
 </LinearLayout>
