@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="system_button_style">@style/AllButtons</item>
     </style>
     <style name="Theme.Calc2.MyTheme" parent="Theme.Calc2">
         <item name="colorPrimary">@color/red</item>
@@ -20,10 +21,11 @@
     </style>
     <style name="Theme.Calc2.Fun" parent="Theme.Calc2">
         <item name="colorPrimary">@color/funny_yellow</item>
+        <item name="system_button_style">@style/AllButtonsFunny</item>
     </style>
 
     <style name="Theme.Calc2.Magic" parent="Theme.Calc2">
-        <item name="colorPrimary">@color/dark_purple</item>
+        <item name="colorPrimary">@color/blue</item>
     </style>
 
     <style name="Theme.Calc2.Metal" parent="Theme.Calc2">
