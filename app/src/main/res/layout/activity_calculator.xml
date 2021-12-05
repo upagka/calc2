@@ -15,11 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_height"
         android:layout_weight="1"
-        android:gravity="center_vertical|end"
-        android:paddingEnd="@dimen/inputFieldPaddingEnd"
         android:text="@string/result"
-        android:textSize="@dimen/inputFieldTextSize"
-        tools:ignore="RtlSymmetry" />
+        tools:ignore="RtlSymmetry"
+        style="@style/InputField" />
 
     <GridLayout
         android:layout_width="match_parent"
@@ -28,14 +26,19 @@
         android:columnCount="4">
 
         <Button
+            android:id="@+id/key_select_theme"
+            style="?attr/system_button_style"
+            android:text="@string/key_select_theme"
+            />
+
+        <Button
             android:id="@+id/key_clear"
-            style="@style/AllButtons"
-            android:layout_columnSpan="2"
+            style="?attr/system_button_style"
             android:text="@string/key_clear" />
 
         <Button
             android:id="@+id/key_backspace"
-            style="@style/AllButtons"
+            style="?attr/system_button_style"
             android:layout_columnSpan="2"
             android:text="@string/key_backspace" />
 
@@ -119,7 +122,7 @@
 
         <Button
             android:id="@+id/key_equals"
-            style="@style/AllButtons"
+            style="?attr/system_button_style"
             android:layout_columnSpan="3"
             android:text="@string/key_equals" />
     </GridLayout>

@@ -19,4 +19,13 @@
     <string name="key_0">0</string>
     <string name="key_plus">+</string>
     <string name="key_equals">=</string>
+    <string name="key_select_theme">Select\nTheme</string>
+    <string name="select_theme_light">Light theme</string>
+    <string name="select_theme_dark">Dark theme</string>
+    <string name="select_theme_green">Green theme</string>
+    <string name="select_theme_emo">Emo Theme</string>
+    <string name="theme_one">Classic</string>
+    <string name="theme_two">Fun</string>
+    <string name="theme_three">Magic</string>
+    <string name="theme_four">Metal</string>
 </resources>

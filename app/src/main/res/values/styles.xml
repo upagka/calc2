@@ -9,11 +9,28 @@
         <item name="android:insetBottom">0dp</item>
     </style>
 
+
     <style name="DigitButtons" parent="AllButtons">
         <item name="android:backgroundTint">#7733dd</item>
     </style>
 
     <style name="OperationButtons" parent="AllButtons">
         <item name="backgroundTint">#3377dd</item>
+    </style>
+
+    <style name="SelectThemeItem">
+        <item name="android:padding">20dp</item>
+        <item name="android:fontFamily">@font/planet</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="InputField">
+        <item name="android:gravity">center_vertical|end</item>
+        <item name="android:paddingEnd">@dimen/inputFieldPaddingEnd</item>
+        <item name="android:textSize">@dimen/inputFieldTextSize</item>
+    </style>
+
+    <style name="AllButtonsFunny" parent="AllButtons">
+        <item name="android:fontFamily">@font/comic_cat</item>
     </style>
 </resources>

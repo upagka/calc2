@@ -4,4 +4,6 @@
     <dimen name="inputFieldTextSize">30sp</dimen>
     <dimen name="layout_height">0dp</dimen>
     <dimen name="my_theme_text_size">32sp</dimen>
+    <dimen name="default_padding">8dp</dimen>
+    <dimen name="half_default_padding">4dp</dimen>
 </resources>
